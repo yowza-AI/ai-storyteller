@@ -25,7 +25,7 @@ The system writes it, narrates it with Emma's own voice, and saves the story for
 User Input
 ├─ Child's name
 ├─ Genre (Fluffy / Fantasy / Sci-Fi / Suspense / Horror)
-├─ Content rating (G / PG / PG-13 / R)
+├─ Content rating (G / PG / PG-13)
 └─ Cast preference
     ↓
 [Writers' Room] — Multi-Agent System
@@ -256,31 +256,6 @@ Emotions shape voice inflection: "excited" = higher pitch, faster; "sad" = lower
    - TTS model is 4.5GB. How is download handled? (progress indicator? resumable?)
    - GPU memory constraints (Turing cards): how are models placed across GPUs?
 
-**Interview questions:**
-
-- "Why have both a Writer and a QA agent? Why not just have Writer output the final story?"
-- "A character's voice preset is `Aria`, but a future story needs a male voice for that character. How does the system handle it?"
-- "Rating enforcement: what's the difference between QA validating the rating vs. Manager? Why two gates?"
-- "The TTS model is 4.5GB. First story generation takes 2 min. What's the user experience like?"
-- "A kid says 'I don't like Luna's voice.' Can you change it? How?"
-
----
-
-## Full Code
-
-**This repository contains architecture and design philosophy.** Full source code is private.
-
-For technical interviews, I can grant read-only access:
-- Complete multi-agent writers' room (Writer, QA, Manager, Casting agents)
-- Character persistence layer (database schema + queries)
-- Per-line narration pipeline (emotion + voice mapping)
-- TTS integration (Qwen3-TTS 1.7B setup + GPU placement)
-- FastAPI backend with SQLite
-- Frontend UI (vanilla JS)
-- Genre/rating templates
-
-**Contact**: yow.stephend@gmail.com
-
 ---
 
 ## Development Approach
@@ -292,5 +267,4 @@ This demonstrates: building a *multi-agent system where agents have distinct rol
 ---
 
 **Status**: MVP complete (local LLM + TTS working, character persistence implemented)  
-**Hardware**: Tested on dual RTX 2080 SUPER (Turing), 32GB RAM  
-**Next**: Voice cloning for custom character voices (schema ready, TTS wiring pending)
+
