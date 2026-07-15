@@ -227,36 +227,6 @@ Emotions shape voice inflection: "excited" = higher pitch, faster; "sad" = lower
 
 ---
 
-## For Technical Interviews
-
-**What to look for in code review:**
-
-1. **Multi-agent orchestration** (Writer → QA → Manager → Casting)
-   - How does iteration work? (QA feedback loop)
-   - How does state flow between agents?
-   - How are failures handled (QA rejection, Manager disapproval)?
-
-2. **Character persistence** (voice continuity across stories)
-   - How does the system map characters → voices → audio?
-   - What happens if a character is re-introduced? (same voice, same tone)
-   - Edge case: character appears in story 1 and story 3, skips story 2 (OK? needs reminder?)
-
-3. **Per-emotion TTS** (voice modulation)
-   - How is emotion embedded in the TTS instruction?
-   - Does emotion modify pitch/speed/tone meaningfully? (or just cosmetic in prompt?)
-   - What if emotion is impossible (e.g., "shocked + sleepy")?
-
-4. **Rating enforcement** (safety gate)
-   - Who validates the rating? (QA? Manager? Both?)
-   - What happens if a story violates the ceiling? (rewrite or reject?)
-   - How are edge cases handled (e.g., "mildly scary scene but rated G")?
-
-5. **Offline-first design** (no cloud, models cached)
-   - What breaks if Ollama is down? (graceful degradation? silent fail?)
-   - TTS model is 4.5GB. How is download handled? (progress indicator? resumable?)
-   - GPU memory constraints (Turing cards): how are models placed across GPUs?
-
----
 
 ## Development Approach
 
@@ -266,5 +236,6 @@ This demonstrates: building a *multi-agent system where agents have distinct rol
 
 ---
 
-**Status**: MVP complete (local LLM + TTS working, character persistence implemented)  
-
+**Status**: MVP complete (local LLM + TTS working, character persistence implemented)
+**Hardware**: Tested on dual RTX 2080 SUPER (Turing), 32GB RAM
+**Next**: Voice cloning for custom character voices (schema ready, TTS wiring pending)
