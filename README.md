@@ -25,7 +25,7 @@ The system writes it, narrates it with Emma's own voice, and saves the story for
 User Input
 ├─ Child's name
 ├─ Genre (Fluffy / Fantasy / Sci-Fi / Suspense / Horror)
-├─ Content rating (G / PG / PG-13)
+├─ Content rating (G / PG / PG-13 / R)
 └─ Cast preference
     ↓
 [Writers' Room] — Multi-Agent System
